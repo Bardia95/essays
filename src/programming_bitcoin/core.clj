@@ -24,7 +24,8 @@
   (+ [x y])
   (- [x y])
   (* [x y])
-  (/ [x y]))
+  (/ [x y])
+  (expt [x k]))
 
 
 (defrecord FieldElement [num prime]
@@ -45,7 +46,10 @@
          prime2 :prime}]
     (assert (= prime prime2) "Cannot divide number from two different fields")
     (FieldElement. (int (mod (*' num (mod-pow num2 (-' prime 2) prime)) prime)) prime)
-    ))
+    )
+  (expt [x k]
+    (let [k (mod k (dec prime))]
+      (mod-pow num k prime))))
 
 (defn make-field-element [n p]
   (if (or (< n 0) (>= n p) (not (prime? p)))
