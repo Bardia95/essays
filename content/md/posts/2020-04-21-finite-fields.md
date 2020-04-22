@@ -12,12 +12,22 @@ Finite fields along with elliptic curves (the topic covered in the next chapter)
 
 ## Finite Field Definition
 
-So what is a finite field? Without getting too mathematical, a finite field is a set of finite numbers which satisfies the following 5 properties:
+So what is a finite field? Without getting too mathematical, a finite field is a set of finite numbers with an order (in other words count) of $p$ which is any prime number. A finite field must satisfy the following 5 properties:
+
+1. If $a$ and $b$ are in the set then $a * b$ and $a + b$ are also in the set. This is called the closed property.
+    - This means that we have to define addition and multiplication in a way that ensures the results stay within the set
+    - $\{0, 1, 2\}$ is not closed under normal addition because $1 + 2 = 3$ and $3$ is not in the set
+    - $\{-1, 0, 1\}$ is closed under normal addition and multiplication because no matter how you add or multiply the numbers, they will always be in the set
+2. 0 exists and has the property that $ a + 0 = a$. This is called the additive identity.
+    - This means 0 is always in the set
+3. 1 exists and has the property that $a * 1 = a$. This is called the multiplicative identity.
+    - This means $1$ is always in the set
+4. If $a$ is in the set then $-a$ is also in the set and is defined by the value that makes $a + (-a) = 0$. This is called the additive inverse.
+    - Can be used to define subtraction
+
+If $a$ is in the set then $a^1$ is also in the set and is defined by the value that makes  $a * a^{-1} = 1$. This is called the multiplicative inverse.
 
 
-```klipse-cljs
-
-```
 
 ## Defining Finite Sets
 

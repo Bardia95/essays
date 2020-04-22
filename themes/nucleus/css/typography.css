@@ -34,7 +34,7 @@ h1 {
 
 h2 {
     margin: 30px 0 15px 0;
-    font-weight: 400;
+    font-weight: 700;
     font-family: "Spectral";
     font-size: 23px;
     line-height: 21px;
@@ -44,7 +44,7 @@ h2 {
 
 h3 {
     margin: 26px 0 13px 0;
-    font-weight: 200;
+    font-weight: 700;
     font-family: "Spectral";
     font-size: 16px;
     line-height: 16px;
@@ -54,7 +54,7 @@ h3 {
 
 h4, h5, h6 {
     margin: 20px 0 10px 0;
-    font-weight: 100;
+    font-weight: 700;
     font-family: "Spectral";
     font-size: 12px;
     line-height: 12px;
