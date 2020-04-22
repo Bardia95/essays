@@ -34,8 +34,8 @@
 
     <p id="logo">
         <a title="{{title}}" href="{{index-uri}}">
-            <span class="fa fa-rocket"></span>
-            <span class="text">Nucleus</span>
+            <span class="text">Essays</span>
+            <span class="text">by Bardia</span>
         </a>
     </p>
 
@@ -44,7 +44,7 @@
             <p><span class="fa fa-reorder"></span><strong>Menu</strong></p>
         </div>
         <ul class="menu">
-            <li {% if home %} class="active" {% endif %}><a title="Home" href="{{index-uri}}">Home</a></li>
+            <li {% if home %} class="active" {% endif %}><a title="Feed" href="{{index-uri}}">Feed</a></li>
             <li {% if archives %} class="active" {% endif %}><a title="Archives" href="{{archives-uri}}">Archives</a></li>
             {% if tags|not-empty %}
             <li {%ifequal uri tags-uri %} class="active" {% endifequal %}><a title="Tags" href="{{tags-uri}}">Tags</a></li>
@@ -54,17 +54,14 @@
                 <a href="{{nav-page.uri}}">{{nav-page.title}}</a>
             </li>
             {% endfor %}
-            <li><a title="RSS" href="{{rss-uri}}">RSS</a></li>
         </ul>
     </div>
 
     <div id="socialmedia" class="clearfix">
         <ul>
-            <li><a title="GitHub" href="./" rel="external"><span class="fa fa-github"></span></a></li>
-            <li><a title="Stack Overflow" href="./" rel="external"><span class="fa fa-stack-overflow"></span></a></li>
-            <li><a title="Google+" href="./" rel="external"><span class="fa fa-google-plus"></span></a></li>
-            <li><a title="LinkedIn" href="./" rel="external"><span class="fa fa-linkedin"></span></a></li>
-            <li><a title="Last.fm" href="./" rel="external"><span class="fa fa-lastfm"></span></a></li>
+            <li><a title="GitHub" href="https://github.com/Bardia95" rel="external"><span class="fa fa-github"></span></a></li>
+            <li><a title="Twitter" href="https://twitter.com/thepericulum" rel="external"><span class="fa fa-twitter"></span></a></li>
+            <li><a title="Instagram" href="https://instagram.com/dstryd.albms" rel="external"><span class="fab fa-instagram"></span></a></li>
         </ul>
     </div>
 

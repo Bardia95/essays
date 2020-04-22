@@ -155,10 +155,9 @@ img.imgfull {
     float: left;
     width: 100%;
     font-size: 30px;
-    line-height: 30px;
+    line-height: 35px;
     font-weight: 700;
     font-family: "Montserrat";
-    text-transform: uppercase;
 }
 
 #left #socialmedia ul {

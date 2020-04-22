@@ -25,7 +25,6 @@
   (- [x y])
   (* [x y])
   (/ [x y]))
-;; => FieldOperations
 
 
 (defrecord FieldElement [num prime]
@@ -40,7 +39,7 @@
     (FieldElement. (mod (-' num num2) prime) prime))
   (* [x {num2 :num
          prime2 :prime}]
-    (assert (= prime prime2) "Cannot ,ebmultiply number from two different fields")
+    (assert (= prime prime2) "Cannot multiply number from two different fields")
     (FieldElement. (mod (*' num num2) prime) prime))
   (/ [x {num2 :num
          prime2 :prime}]
