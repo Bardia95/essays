@@ -14,7 +14,7 @@
  :rss-filters                  ["cryogen"]
  :recent-posts                 3
  :post-date-format             "yyyy-MM-dd"
- :archive-group-format         "yyyy MMMM"
+ :archive-group-format         "yyyy MM"
  :sass-src                     []
  :sass-path                    "sass"
  :theme                        "nucleus"
