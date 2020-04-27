@@ -1,18 +1,15 @@
 (ns programming-bitcoin.core
   (:require [clojure.spec.alpha :as s]))
 
-(defn square [x]
-  (* x x))
-
 (defn modpow [n p m]
   (.modPow (biginteger n) (biginteger p) (biginteger m)))
 
 (defn fermat-test [n]
   (let [a (inc (rand-int (dec n)))]
-    (= (mod-pow a n n) a)))
+    (= (modpow a n n) a)))
 
 (defn prime? [n]
-  (every? true? (take 50 (repeatedly #(fermat-test n)))))
+  (every? true? (repeat 50 (fermat-test n))))
 
 (defn make-finite-field [p]
   (if (s/valid? ::prime p)
@@ -63,9 +60,7 @@
 (s/def ::zero-or-more #(>= % 0))
 (s/def ::prime prime?)
 
-(defn make-field-element [n p]
-  (if (and (< n p) (s/valid? ::zero-or-more n) (s/valid? ::prime p))
-    (FieldElement. n p)
+(defn make-field-element [e p]
+  (if (and (< e p) (s/valid? ::zero-or-more e) (s/valid? ::prime p))
+    (FieldElement. e p)
     (println "Invalid Field Element")))
-
-
