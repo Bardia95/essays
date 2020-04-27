@@ -1,57 +1,71 @@
-(ns programming-bitcoin.core)
+(ns programming-bitcoin.core
+  (:require [clojure.spec.alpha :as s]))
 
 (defn square [x]
   (* x x))
 
-(defn mod-pow [n p m]
+(defn modpow [n p m]
   (.modPow (biginteger n) (biginteger p) (biginteger m)))
 
 (defn fermat-test [n]
   (let [a (inc (rand-int (dec n)))]
     (= (mod-pow a n n) a)))
 
-(defn prime?
-  ([n] (prime? n 50))
-  ([n n-tests]
-   (every? true? (take n-tests (repeatedly #(fermat-test n))))))
+(defn prime? [n]
+  (every? true? (take 50 (repeatedly #(fermat-test n)))))
 
 (defn make-finite-field [p]
-  (if (prime? p)
+  (if (s/valid? ::prime p)
     (into (sorted-set) (range 0 p))
     "Please supply a prime"))
 
 (defprotocol FieldOperations
-  (+ [x y])
-  (- [x y])
-  (* [x y])
-  (/ [x y])
-  (expt [x k]))
+  (=f      [x y])
+  (not=f   [x y])
+  (+f      [x y])
+  (-f      [x y])
+  (*f      [x y])
+  (divf      [x y])
+  (**f     [x k]))
+
+(defn assert= [p p2]
+  (assert (= p p2) "Fields need to be of the same prime order"))
 
 
-(defrecord FieldElement [num prime]
+(defrecord FieldElement [e p]
   FieldOperations
-  (+ [x {num2 :num
-         prime2 :prime}]
-    (assert (= prime prime2) "Cannot add number from two different fields")
-    (FieldElement. (mod (+' num num2) prime) prime))
-  (- [x {num2 :num
-         prime2 :prime}]
-    (assert (= prime prime2) "Cannot subtract number from two different fields")
-    (FieldElement. (mod (-' num num2) prime) prime))
-  (* [x {num2 :num
-         prime2 :prime}]
-    (assert (= prime prime2) "Cannot multiply number from two different fields")
-    (FieldElement. (mod (*' num num2) prime) prime))
-  (/ [x {num2 :num
-         prime2 :prime}]
-    (assert (= prime prime2) "Cannot divide number from two different fields")
-    (FieldElement. (int (mod (*' num (mod-pow num2 (-' prime 2) prime)) prime)) prime)
-    )
-  (expt [x k]
-    (let [k (mod k (dec prime))]
-      (mod-pow num k prime))))
+  (=f [x {e2 :e
+          p2 :p}]
+    (and (= e e2) (= p p2)))
+  (not=f [x {e2 :e
+             p2  :p}]
+    (or (not= e e2) (not= p p2)))
+  (+f [x {e2 :e
+          p2 :p}]
+    (FieldElement. (mod (+ e e2) p) p))
+  (-f [x {e2 :e
+          p2 :p}]
+    (assert= p p2)
+    (FieldElement. (mod (- e e2) p) p))
+  (*f [x {e2 :e
+          p2 :p}]
+    (assert= p p2)
+    (FieldElement. (mod (* e e2) p) p))
+  (divf [x {e2 :e
+            p2 :p}]
+    (assert= p p2)
+    (FieldElement. (int (mod (* e (modpow e2 (- p 2) p)) p)) p))
+  (**f [x k]
+    (let [k (mod k (dec p))]
+      (modpow e k p))))
+
+
+(s/def ::zero-or-more #(>= % 0))
+(s/def ::prime prime?)
 
 (defn make-field-element [n p]
-  (if (or (< n 0) (>= n p) (not (prime? p)))
-    (println "Invalid Field Element")
-    (FieldElement. n p)))
+  (if (and (< n p) (s/valid? ::zero-or-more n) (s/valid? ::prime p))
+    (FieldElement. n p)
+    (println "Invalid Field Element")))
+
+
