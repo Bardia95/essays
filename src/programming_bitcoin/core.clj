@@ -20,13 +20,13 @@
     "Please supply a prime"))
 
 (defprotocol FieldOperations
-  (=f      [x y])
-  (not=f   [x y])
-  (+f      [x y])
-  (-f      [x y])
-  (*f      [x y])
-  (divf      [x y])
-  (**f     [x k]))
+  (=f    [x y])
+  (not=f [x y])
+  (+f    [x y])
+  (-f    [x y])
+  (*f    [x y])
+  (divf  [x y])
+  (**f   [x k]))
 
 (defn assert= [p p2]
   (assert (= p p2) "Fields need to be of the same prime order"))
@@ -51,7 +51,7 @@
           p2 :p}]
     (assert= p p2)
     (FieldElement. (mod (* e e2) p) p))
-  (divf [x {e2 :e
+  (divf [x {e2 :eg
             p2 :p}]
     (assert= p p2)
     (FieldElement. (int (mod (* e (modpow e2 (- p 2) p)) p)) p))
