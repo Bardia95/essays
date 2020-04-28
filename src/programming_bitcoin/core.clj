@@ -1,8 +1,8 @@
 (ns programming-bitcoin.core
   (:require [clojure.spec.alpha :as s]))
 
-(defn modpow [n p m]
-  (.modPow (biginteger n) (biginteger p) (biginteger m)))
+(defn modpow [b e m]
+  (.modPow (biginteger b) (biginteger e) (biginteger m)))
 
 (defn fermat-test [n]
   (let [a (inc (rand-int (dec n)))]
