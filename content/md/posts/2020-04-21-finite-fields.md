@@ -3,7 +3,7 @@
  :tags ["clojure", "bitcoin", "math"]
  :klipse true}
  
- This essay is a summary and exploration of Jimmy Song's [Programming Bitcoin](https://www.oreilly.com/library/view/programming-bitcoin/9781492031482/) in Clojure. The book's coding exercises are in Pytho, and as I am learning both Python and Clojure currently, I thought it would be fun to translate the exercises from Python to Clojure.
+ This essay is a summary and exploration of Jimmy Song's [Programming Bitcoin](https://www.oreilly.com/library/view/programming-bitcoin/9781492031482/) in Clojure. The book's coding exercises are in Python, and as I am learning both Python and Clojure currently, I thought it would be fun to translate the exercises from Python to Clojure.
  
 We start with finite fields. But why are they important to learning how to program Bitcoin? Well, Jimmy wants to teach us all the fundamentals so we know how Bitcoin's underlying components work. And guess what's at the heart of it all? That's right: finite fields.
 
