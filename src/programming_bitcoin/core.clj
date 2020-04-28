@@ -29,32 +29,29 @@
   (assert (= p p2) "Fields need to be of the same prime order"))
 
 
-(defrecord FieldElement [e p]
+(defrecord FieldElement [e p])
+
+(extend-type FieldElement
   FieldOperations
-  (=f [x {e2 :e
-          p2 :p}]
+  (=f [{e :e p :p} {e2 :e p2 :p}]
     (and (= e e2) (= p p2)))
-  (not=f [x {e2 :e
-             p2  :p}]
+  (not=f [{e :e p :p} {e2 :e p2 :p}]
     (or (not= e e2) (not= p p2)))
-  (+f [x {e2 :e
-          p2 :p}]
+  (+f [{e :e p :p} {e2 :e p2 :p}]
+    (assert= p p2)
     (FieldElement. (mod (+ e e2) p) p))
-  (-f [x {e2 :e
-          p2 :p}]
+  (-f [{e :e p :p} {e2 :e p2 :p}]
     (assert= p p2)
     (FieldElement. (mod (- e e2) p) p))
-  (*f [x {e2 :e
-          p2 :p}]
+  (*f [{e :e p :p} {e2 :e p2 :p}]
     (assert= p p2)
     (FieldElement. (mod (* e e2) p) p))
-  (divf [x {e2 :eg
-            p2 :p}]
+  (divf [{e :e p :p} {e2 :e p2 :p}]
     (assert= p p2)
     (FieldElement. (int (mod (* e (modpow e2 (- p 2) p)) p)) p))
-  (**f [x k]
+  (**f [{e :e p :p} k]
     (let [k (mod k (dec p))]
-      (modpow e k p))))
+      (FieldElement. (modpow e k p) p))))
 
 
 (s/def ::zero-or-more #(>= % 0))
