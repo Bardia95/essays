@@ -27,6 +27,7 @@ pre code{
     background: #2d2d2d;
     color: #cccccc;
     padding: 0.5em;
+    margin-bottom: 10px;
 }
 
 html {
@@ -40,10 +41,10 @@ html {
 
 body {
     font-family: "Spectral", Arial, Verdana, Helvetica, sans-serif;
-    font-size: 17px;
+    font-size: 18px;
     color: #000;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 32px;
     background: #FFF;
 
     text-rendering: optimizeLegibility;
@@ -189,7 +190,7 @@ img.imgfull {
     top: 0;
     left: 0;
     width: 100%;
-    max-width: 1240px;
+    max-width: 1000px;
     z-index: 2;
     padding: 40px 50px 40px 320px;
 }
