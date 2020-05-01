@@ -1,5 +1,4 @@
-(ns programming-bitcoin.core
-  (:require [clojure.spec.alpha :as s]))
+(ns programming-bitcoin.core)
 
 (defn modpow [b e m]
   (.modPow (biginteger b) (biginteger e) (biginteger m)))
@@ -54,10 +53,7 @@
       (FieldElement. (modpow e k p) p))))
 
 
-(s/def ::zero-or-more #(>= % 0))
-(s/def ::prime prime?)
-
 (defn make-field-element [e p]
-  (if (and (< e p) (s/valid? ::zero-or-more e) (s/valid? ::prime p))
+  (if (and (<= 0 e) (< e p) (prime? p))
     (FieldElement. e p)
     (println "Invalid Field Element")))
