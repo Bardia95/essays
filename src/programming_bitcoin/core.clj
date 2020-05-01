@@ -1,7 +1,7 @@
 (ns programming-bitcoin.core)
 
 (defn modpow [b e m]
-  (.modPow (biginteger b) (biginteger e) (biginteger m)))
+  (mod (reduce #(mod (* %1 %2) m) (repeat e b)) m))
 
 (defn fermat-test [n]
   (let [a (inc (rand-int (dec n)))]
