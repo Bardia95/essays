@@ -1,4 +1,5 @@
 (ns programming-bitcoin.core)
+;; => nil
 
 (defn modpow [b e m]
   (mod (reduce #(mod (* %1 %2) m) (repeat e b)) m))
@@ -20,7 +21,6 @@
 
 (defprotocol FieldOperations
   (=f    [x y])
-  (not=f [x y])
   (+f    [x y])
   (-f    [x y])
   (*f    [x y])
@@ -37,8 +37,6 @@
   FieldOperations
   (=f [{e :e p :p} {e2 :e p2 :p}]
     (and (= e e2) (= p p2)))
-  (not=f [{e :e p :p} {e2 :e p2 :p}]
-    (or (not= e e2) (not= p p2)))
   (+f [{e :e p :p} {e2 :e p2 :p}]
     (assert= p p2)
     (FieldElement. (mod (+ e e2) p) p))
@@ -65,14 +63,7 @@
 (defrecord Point [x y a b])
 
 (defprotocol PointOperations
-  (=p    [x y])
-  (not=p [x y])
-  (+p    [x y])
-  (-p    [x y])
-  (*p    [x y])
-  (divp  [x y])
-  (**p   [x k]))
-
+  (+p    [x y]))
 
 (defn make-point [x y a b]
   (if (and (= x nil) (= y nil))
@@ -80,3 +71,26 @@
     (if (not= (** y 2) (+ (** x 3) (* a x) b))
       (println (str "(" x ", " y ") is not on the curve."))
       (Point. x y a b))))
+
+(extend-type Point
+  PointOperations
+  (+p [{x1 :x y1 :y a1 :a b1 :b}
+       {x2 :x y2 :y a2 :a b2 :b}]
+    (if (or (not= a1 a2) (not= b1 b2))
+      (println "The points are not on the same curve")
+      (if (= x1 nil)
+        (Point. x2 y2 a2 b2)
+        (if (= x2 nil)
+          (Point. x1 y1 a1 b1)
+          (if (and (= x1 x2) (not= y1 y2))
+            (Point. nil nil a1 b2)
+            (if (not= x1 x2)
+              (let [s (/ (- y2 y1) (- x2 x1))
+                    x3 (- (** s 2) x1 x2)
+                    y3 (-  (* s (- x1 x3)) y1)]
+                (Point. x3 y3 a1 b1))
+              (if (and (= x1 x2) (= y1 y2))
+                (let [s (/ (+ (* 3 (** x1 2) a1)) (* 2 y1))
+                      x3 (- (** s 2) x1 x2)
+                      y3 (- (* s (- x1 x3)) y1)]
+                  (Point. x3 y3 a1 b1))))))))))
