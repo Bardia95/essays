@@ -1,8 +1,11 @@
 {:title "Finite Fields"
  :layout :post
  :tags ["clojure", "bitcoin", "math"]
- :klipse true}
+ :klipse true
+ :toc true}
  
+
+
  This essay is a summary and exploration of Jimmy Song's [Programming Bitcoin](https://www.oreilly.com/library/view/programming-bitcoin/9781492031482/) in Clojure. The book's coding exercises are in Python, and as I am learning both Python and Clojure currently, I thought it would be fun to translate the exercises from Python to Clojure.
  
 We start with finite fields. But why are they important to learning how to program Bitcoin? Well, Jimmy wants to teach us all the fundamentals so we know how Bitcoin's underlying components work. And guess what's at the heart of it all? That's right: finite fields.
@@ -13,19 +16,26 @@ Finite fields, along with elliptic curves (the topic covered in the next chapter
 
 A finite field is a set of finite numbers of length $$p$$ otherwise known as the order of the set, which satisfies the following properties:
 
-1. If $$a$$ and $$b$$ are in the set then $$a * b$$ and $$a + b$$ are also in the set. This is called the closed property. This means that we have to define addition and multiplication in a way that ensures the results stay within the set.
+**1. Closed property**
+- If $$a$$ and $$b$$ are in the set then $$a * b$$ and $$a + b$$ are also in the set.
 
-    $$\{0, 1, 2\}$$ is not closed under normal addition because $$1 + 2 = 3$$ and $$3$$ is not in the set.
+- This means that we have to define addition and multiplication in a way that ensures the results stay within the set.
+
+- $$\{0, 1, 2\}$$ is not closed under normal addition because $$1 + 2 = 3$$ and $$3$$ is not in the set.
     
-    $$\{-1, 0, 1\}$$ is closed under normal addition and multiplication because no matter how you add or multiply the numbers, they will always be in the set.
+- $$\{-1, 0, 1\}$$ is closed under normal addition and multiplication because no matter how you add or multiply the numbers, they will always be in the set.
     
-2. 0 exists and has the property that $$ a + 0 = a$$. This is called the additive identity.
+**2. Additive identity**
+- $$0$$ exists and has the property that $$ a + 0 = a$$.
 
-3. 1 exists and has the property that $$a * 1 = a$$. This is called the multiplicative identity.
+**3. Multiplicative identity**
+- $$1$$ exists and has the property that $$a * 1 = a$$. This is called the multiplicative identity.
 
-4. If $$a$$ is in the set then $$-a$$ is also in the set and is defined by the value that makes $$a + (-a) = 0$$. This is called the additive inverse.
+**4. Additive inverse**
+- If $$a$$ is in the set then $$-a$$ is also in the set and is defined by the value that makes $$a + (-a) = 0$$.
 
-5. If $$a$$ is in the set then $$a\^{1}$$ is also in the set and is defined by the value that makes $$ a * a^{-1} = 1 $$. This is called the multiplicative inverse.
+**5. Multiplicative inverse**
+- If $$a$$ is in the set then $$a\^{1}$$ is also in the set and is defined by the value that makes $$ a * a^{-1} = 1 $$.
 
 ## Defining Finite Sets
 
@@ -294,7 +304,7 @@ Now let's code up our new finite division operation as a function in Clojure
 (println (str "a / b = ") (divf a b))
 ```
 
-Here, we are multiplying the first field element by the result of the `modpow` function defined earlier that is more efficient than typical exponentiation. It runs the modulo function after each round of multiplication in the exponentiation. This is because, as you saw above, the exponents for finite field division can get very large very quickly. We then wrap the element in the `int` function because the result of the `modpow` function is a big integer and we want our `FieldElement` to have a normal integer as the element's type. And we're done.
+Here, we are multiplying the first field element by the result of the `modpow` function defined earlier that is more efficient than typical exponentiation. It runs the modulo function after each round of multiplication in the exponentiation. This is because, as you saw above, the exponents for finite field division can get very large very quickly. We then wrap the element in the `int` function because the result of the `modpow** function is a big integer and we want our `FieldElement** to have a normal integer as the element's type. And we're done.
 
 ## Conclusion
 
@@ -302,7 +312,7 @@ There you have it! We have covered the basics of finite fields and we wrote some
 
 Stay tuned for the next chapter summary and exploration where we'll be learning about elliptic curves!
 
-## Answer Key
+<details><summary><strong>Answer Key</strong></summary><br>
 
 **a)** 1
 
@@ -323,3 +333,5 @@ Stay tuned for the next chapter summary and exploration where we'll be learning 
 **i)** 4
 
 **j)** 38
+
+</details>
