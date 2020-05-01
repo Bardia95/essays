@@ -3,15 +3,18 @@
 (defn modpow [b e m]
   (mod (reduce #(mod (* %1 %2) m) (repeat e b)) m))
 
+(defn ** [b e]
+  (reduce * (repeat e b)))
+
 (defn fermat-test [n]
   (let [a (inc (rand-int (dec n)))]
     (= (modpow a n n) a)))
 
 (defn prime? [n]
-  (every? true? (take 50 (repeatedely #(fermat-test n)))))
+  (every? true? (take 50 (repeatedly #(fermat-test n)))))
 
 (defn make-finite-field [p]
-  (if (s/valid? ::prime p)
+  (if (prime? p)
     (into (sorted-set) (range 0 p))
     "Please supply a prime"))
 
@@ -57,3 +60,23 @@
   (if (and (<= 0 e) (< e p) (prime? p))
     (FieldElement. e p)
     (println "Invalid Field Element")))
+
+
+(defrecord Point [x y a b])
+
+(defprotocol PointOperations
+  (=p    [x y])
+  (not=p [x y])
+  (+p    [x y])
+  (-p    [x y])
+  (*p    [x y])
+  (divp  [x y])
+  (**p   [x k]))
+
+
+(defn make-point [x y a b]
+  (if (and (= x nil) (= y nil))
+    (Point. x y a b)
+    (if (not= (** y 2) (+ (** x 3) (* a x) b))
+      (println (str "(" x ", " y ") is not on the curve."))
+      (Point. x y a b))))
