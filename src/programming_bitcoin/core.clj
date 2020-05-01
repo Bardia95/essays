@@ -9,7 +9,7 @@
     (= (modpow a n n) a)))
 
 (defn prime? [n]
-  (every? true? (repeat 50 (fermat-test n))))
+  (every? true? (take 50 (repeatedely #(fermat-test n)))))
 
 (defn make-finite-field [p]
   (if (s/valid? ::prime p)

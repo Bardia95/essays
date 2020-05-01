@@ -78,7 +78,7 @@ Here's how you would implement it in Clojure:
 (defn prime? 
   "Integer -> Boolean"
   [p]
-  (every? true? (repeat 50 (fermat-test p))))
+  (every? true? (take 50 (repeatedly #(fermat-test p)))))
   
 (println (prime? 6))
 (println (prime? 5))
