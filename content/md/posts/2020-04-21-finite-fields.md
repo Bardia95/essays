@@ -308,7 +308,7 @@ Now let's code up our new finite division operation as a function in Clojure
 (println (str "a / b = ") (divf a b))
 ```
 
-Here, we are multiplying the first field element by the result of the `modpow` function defined earlier that is more efficient than typical exponentiation. It runs the modulo function after each round of multiplication in the exponentiation. This is because, as you saw above, the exponents for finite field division can get very large very quickly. We then wrap the element in the `int` function because the result of the `modpow** function is a big integer and we want our `FieldElement** to have a normal integer as the element's type. And we're done.
+Here, we are multiplying the first field element by the result of the `modpow` function defined earlier that is more efficient than typical exponentiation. It runs the modulo function after each round of multiplication in the exponentiation. This is because, as you saw above, the exponents for finite field division can get very large very quickly. We then wrap the element in the `int` function because the result of the `modpow` function is a big integer and we want our `FieldElement` to have a normal integer as the element's type. And we're done.
 
 ## Conclusion
 
