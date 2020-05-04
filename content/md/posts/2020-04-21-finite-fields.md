@@ -275,7 +275,9 @@ $$a /_fb = a*_f(1/b) = a*_fb^{-1}$$
 
 So now all we need to do to turn this to a multiplication problem is to find out what $$b\^{-1}$$ is. 
 
-This is where we can apply Fermat's Little Theorem since we already know that $$b\^{p-1} \mod p = 1$$. So we can multiply $$b\^{-1}$$ by $$b\^{p-1}$$ to get $$b\^{-1} = b\^{p-2}$$. 
+This is where we can apply Fermat's Little Theorem since we already know that $$b\^{p-1} \mod p = 1$$. 
+
+So we can multiply $$b\^{-1}$$ by $$b\^{p-1}$$ to get $$b\^{-1} = b\^{p-2}$$. 
 
 In $$F_{19}$$ this means that $$b\^{18} = 1$$, which means that $$b\^{17} = b\^{-1}$$ for all $$b > 0$$.
 
