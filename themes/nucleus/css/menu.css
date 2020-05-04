@@ -21,7 +21,7 @@
     font-weight: 300;
     line-height: 22px;
     text-decoration: none;
-    letter-spacing: 2px;
+    letter-spacing: 0.05em;
 }
 
 #menucont ul.menu li a:hover {
