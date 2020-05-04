@@ -299,7 +299,7 @@ Now let's code up our new finite division operation as a function in Clojure
 (extend-type FieldElement
   FieldOperations
   (divf [{e :e p :p} {e2 :e p2 :p}]
-    (assert= p p2)
+    (assert (= p p2))
     (FieldElement. (int (mod (* e (modpow e2 (- p 2) p)) p)) p)))
 (println (str "a / b = ") (divf a b))
 ```
