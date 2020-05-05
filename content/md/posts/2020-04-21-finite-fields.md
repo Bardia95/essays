@@ -71,7 +71,7 @@ We take an integer $$p$$ whose primality we want to check as the input, then we 
 
 To get over this hurdle, we can choose many different values for $$a$$, and this way we find many composite witnesses instead of values of $$a$$. It has been proven that the number of fools must divide the total size of the group we select from. What this means is that, at most, 50% of the elements in a finite field can be fools. And since $$a$$ is chosen randomly, the chance of finding a composite witness is at least 50%, and so after $$t$$ iterations, the probability no composite will be found with a composite number is at most $$\leq 1/2^t$$. So after $$50$$ iterations, the probability of mistakenly outputting a prime is $$1$$ in $$1125899906842624$$.
 
-Fermat's test is much more efficient than simply checking greatest common divisors as the number of steps does not scale with the input. It is a logarithmic algorithm with a time complexity if $$O(log_2n)$$, meaning that the problem size splits in half each time the input size increases.
+Fermat's test is much more efficient than simply checking greatest common divisors as the number of steps does not scale with the input. It is a logarithmic algorithm with a time complexity of $$O(log_2n)$$, meaning that the problem size splits in half each time the input size increases.
 
 Here's how you would implement it in Clojure:
 
