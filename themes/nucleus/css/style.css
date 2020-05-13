@@ -61,13 +61,14 @@ body {
     background: #abffa0c4;
 }
 
-a {
-    color: #2aa198;
+#right a {
+    background: #fbd15b75;
+    color: black;
     text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+    background: #ffca36d9 !important;
 }
 
 
