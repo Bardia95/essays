@@ -40,10 +40,12 @@ A finite field is a set of finite numbers of length $$p$$ otherwise known as the
 ## Defining Finite Sets
 
 Finite fields always have a prime order $$p$$ and the set will include integers between $$0$$ and $$p - 1$$, so:
-    $$F_p = \{0, 1, 2, ... p-1\}$$
+
+$$F_p = \{0, 1, 2, ... p-1\}$$
     
 And a finite field of prime order $$7$$ would look like this:
-    $$F_7 = \{0, 1, 2, 3, 4, 5, 6\}$$
+
+$$F_7 = \{0, 1, 2, 3, 4, 5, 6\}$$
     
 ## Constructing a Finite Field in Clojure
 
@@ -57,7 +59,7 @@ Here, `e` refers to the integer representing the field element and `p` is the pr
 
 Checking if a number is within a certain interval is trivial, but checking if a number is prime is a bit more involved. While we could use trial and error to check if the prime shares any divisors other than 1, this method does not scale up as well as it could, since the size of the problem grows linearly as we keep testing the input iteratively.
 
-Alternatively, we could use Fermat's Primality Test, which allows us to prove an integer as a composite with 100% accuracy or as a prime with a very high degree of accuracy. It is based on Fermat's Little Theorem, which will prove useful later as well. Fermat's Little Theorem gives us a known pattern that all primes and very few composites follow. It asserts that given some prime number $$p$$ and some other integer $$a$$:
+Alternatively, we could use _Fermat's Primality Test_, which allows us to prove an integer as a composite with 100% accuracy or as a prime with a very high degree of accuracy. It is based on _Fermat's Little Theorem_, which will prove useful later as well. _Fermat's Little Theore_m gives us a known pattern that all primes and very few composites follow. It asserts that given some prime number $$p$$ and some other integer $$a$$:
 
 $$a\^{p} \mod p = a$$
 
@@ -67,7 +69,7 @@ $$a\^{p-1} \mod p = 1$$
 
 If you do $$a\^{p} \mod p$$ and it returns anything other than $$a$$, you have what is called a composite witness—proof that the $$p$$ we chose cannot be prime. If you are not familiar with the modulo operator, we will be covering it soon, so don't worry. Anyways, the test works like this:
 
-We take an integer $$p$$ whose primality we want to check as the input, then we generate a random integer $$a$$ in the range $$0 \leq a \leq p - 1$$. And then we can ask if $$a^p \mod p$$ returns $$a$$, if the answer is not $$a$$, then we know for sure it is a composite number and we can return that. If it does return $$a$$, we still do not know for sure that $$p$$ is prime. This is because of the fact that some composite numbers return $$a$$ for Fermat's Primality Test, and these are called Carmichael numbers, otherwise known as pseudoprimes. And the values for $$a$$ that show Carmichael numbers are primes are called fools because they fool us into thinking $$p$$ is prime when it is not.
+We take an integer $$p$$ whose primality we want to check as the input, then we generate a random integer $$a$$ in the range $$0 \leq a \leq p - 1$$. And then we can ask if $$a^p \mod p$$ returns $$a$$, if the answer is not $$a$$, then we know for sure it is a composite number and we can return that. If it does return $$a$$, we still do not know for sure that $$p$$ is prime. This is because of the fact that some composite numbers return $$a$$ for _Fermat's Primality Test_, and these are called Carmichael numbers, otherwise known as pseudoprimes. And the values for $$a$$ that show Carmichael numbers are primes are called fools because they fool us into thinking $$p$$ is prime when it is not.
 
 To get over this hurdle, we can choose many different values for $$a$$, and this way we find many composite witnesses instead of values of $$a$$. It has been proven that the number of fools must divide the total size of the group we select from. What this means is that, at most, 50% of the elements in a finite field can be fools. And since $$a$$ is chosen randomly, the chance of finding a composite witness is at least 50%, and so after $$t$$ iterations, the probability no composite will be found with a composite number is at most $$\leq 1/2^t$$. So after $$50$$ iterations, the probability of mistakenly outputting a prime is $$1$$ in $$1125899906842624$$.
 
@@ -265,7 +267,7 @@ And in $$F_{19}$$:
 
 $$9*_f5 = 45 \mod 19 = 7 \rightarrow 7/_f5 = 9$$
 
-But how do we calculate $$7/_f5 = 9$$ without first knowing that $$9*_f 5 = 7$$? The answer comes from Fermat's Little Theorem that we discussed before. Specifically, this formulation of it helps us define finite field division:
+But how do we calculate $$7/_f5 = 9$$ without first knowing that $$9*_f 5 = 7$$? The answer comes from _Fermat's Little Theorem_ that we discussed before. Specifically, this formulation of it helps us define finite field division:
 
 $$a^{p-1} \mod p = 1$$
 

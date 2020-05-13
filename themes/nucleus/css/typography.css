@@ -10,7 +10,7 @@
     text-align: right;
 }
 
-#right {
+#right p {
     font-size: 16px;
     line-height: 1.6em;
 }
@@ -22,12 +22,13 @@ strong, b {
 
 em, i {
     font-style: italic;
+    color: #d33682;
 }
 
 h1 {
     margin: 0 0 30px 0;
     font-weight: 700;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Times New Roman", serif;
     font-size: 46px;
     line-height: 42px;
     letter-spacing: -1px;
@@ -37,7 +38,7 @@ h1 {
 h2 {
     margin: 30px 0 15px 0;
     font-weight: 700;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Times New Roman", serif;
     font-size: 23px;
     line-height: 21px;
     letter-spacing: -0.5px;
@@ -47,7 +48,7 @@ h2 {
 h3 {
     margin: 26px 0 13px 0;
     font-weight: 700;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Times New Roman", serif;
     font-size: 16px;
     line-height: 16px;
     letter-spacing: -0.4px;
@@ -57,8 +58,8 @@ h3 {
 h4, h5, h6 {
     margin: 20px 0 10px 0;
     font-weight: 700;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 12px;
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
     line-height: 12px;
     color: #111;
 }
@@ -89,6 +90,10 @@ ol ol {
     margin: 0 0 0 25px;
 }
 
+p {
+    font-size: 18px !important;
+}
+
 hr {
     clear: both;
     float: left;
@@ -96,7 +101,7 @@ hr {
     padding: 0;
     margin: 30px 0 40px 0;
     border: none;
-    border-top: 4px solid #A71E2E;
+    border-top: 4px solid #586F76;
     text-align: center;
 }
 
@@ -121,6 +126,20 @@ blockquote p.author {
 }
 
 
+.katex, .katex-html, .katex-mathtml {
+    color: #6c71c4 !important;
+    font-weight: 700 !important;
+}
+
+code {
+    font-weight: 700;
+    background: #eee;
+    color: #333;
+    margin-right: .2em;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: .1em .3em;
+}
 
 @media screen and (max-width: 768px) {
 
