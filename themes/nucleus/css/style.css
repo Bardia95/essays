@@ -43,7 +43,7 @@ html {
 }
 
 body {
-    font-family: "Times New Roman", serif;
+    font-family: "Helvetica Neue", sans-serif;
     font-size: 18px;
     color: #000;
     font-weight: 400;
@@ -164,7 +164,7 @@ img.imgfull {
     font-size: 40px;
     line-height: 34px;
     font-weight: 700;
-    font-family: "Times New Roman", serif;
+    font-family: "Helvetica Neue", sans-serif;
 }
 
 #left p#logo a span.text#by-bardia {
@@ -226,6 +226,10 @@ img.imgfull {
 
 code {
     width: 150%;
+}
+
+#post-meta {
+    margin-bottom: 10px;
 }
 
 /* ==================================================
