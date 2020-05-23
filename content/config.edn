@@ -1,6 +1,6 @@
-{:site-title                   "Essays"
+{:site-title                   "btcclj"
  :author                       "Bardia Pourvakil"
- :description                  "Exploring"
+ :description                  "Exploring Bitcoin in Clojure"
  :site-url                     "http://essays.bardiapourvakil.com/"
  :post-root                    "posts"
  :page-root                    "pages"
