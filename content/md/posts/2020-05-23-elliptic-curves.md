@@ -3,7 +3,7 @@
  :tags ["clojure", "bitcoin", "math"]
  :toc true}
 
-Welcome to the second part of our Clojure-based exploration of Programming Bitcoin by Jimmy Song. In the first part, we tackled finite fields, which, when combined with this essay's topic, elliptic curves produce elliptic curve cryptography—the basis of Bitcoin's signing and verification algorithms. The essential math we will learn in this section may seem difficult at first but it is very similar to what we learned before.
+Welcome to the second part of our Clojure-based exploration of Programming Bitcoin by Jimmy Song. In the first part, we tackled finite fields, which, when combined with this essay's topic, elliptic curves, produce elliptic curve cryptography—the basis of Bitcoin's signing and verification algorithms. The essential math we will learn in this section may seem difficult at first but it is very similar to what we learned before.
 
 ## **Definition**
 
@@ -279,7 +279,7 @@ $$P_3 = (18, 77)$$
 
 As can be seen here, adding the same point on an elliptic curve to itself can yield highly unintuitive results.
 
-## **Coding Point Addition For When** $$P_1 = P_2$$
+## Coding Point Addition For When $$P_1 = P_2$$
 
 ```
 (defn tangent-slope

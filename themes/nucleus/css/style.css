@@ -67,7 +67,7 @@ body {
     text-decoration: none;
 }
 
-a:hover {
+#right a:hover {
     background: #ffca36d9 !important;
 }
 
@@ -81,6 +81,9 @@ img {
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
+    max-width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 img.imgfull {
@@ -202,12 +205,6 @@ img.imgfull {
     padding: 40px 50px 40px 250px;
 }
 
-img {
-    max-width: 90%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
 #right p {
     margin: 0 0 20px 0;
 }
@@ -225,6 +222,10 @@ img {
     margin: 0;
     text-align: left;
     letter-spacing: 1.4px;
+}
+
+code {
+    width: 150%;
 }
 
 /* ==================================================
