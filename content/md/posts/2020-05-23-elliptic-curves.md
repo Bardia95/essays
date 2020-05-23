@@ -61,7 +61,7 @@ In a production app, we'd be doing more validation, using something like `clojur
 
 ## Point Addition
 
-**Elliptic curves are useful to cryptography because of a special property of adding points on a curve. 
+Elliptic curves are useful to cryptography because of a special property of adding points on a curve. 
 
 Point addition involves performing an operation on two points on the curve to get a third point, which is also on the same curve. While it is not the same as normal addition, it is called so, because point addition shares some of the same intuitions we associate with addition.
 
