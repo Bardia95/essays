@@ -202,6 +202,12 @@ img.imgfull {
     padding: 40px 50px 40px 250px;
 }
 
+img {
+    max-width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 #right p {
     margin: 0 0 20px 0;
 }
