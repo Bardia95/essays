@@ -5,9 +5,6 @@
     <div class="post-header">
         <h1>{{post.title}}</h1>
         <div id="post-meta">
-            {% if post.author %}
-            <div class="author">{{post.author}}</div>
-            {% endif %}
             <strong>{{post.date|date:longDate}}</strong>
         </div>
     </div>

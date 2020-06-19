@@ -200,7 +200,7 @@ img.imgfull {
     top: 0;
     left: 0;
     width: 100%;
-    max-width: 860px;
+    max-width: 1000px;
     z-index: 2;
     padding: 40px 50px 40px 250px;
 }
@@ -222,10 +222,6 @@ img.imgfull {
     margin: 0;
     text-align: left;
     letter-spacing: 1.4px;
-}
-
-code {
-    width: 110%;
 }
 
 #post-meta {

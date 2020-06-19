@@ -2,7 +2,8 @@
  :layout :post
  :tags ["clojure", "bitcoin", "math"]
  :klipse true
- :toc true}
+ :toc true
+ :author "Bardia Pourvakil"}
  
 
 
