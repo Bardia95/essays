@@ -35,7 +35,7 @@ To prove ownership of the private key, we must do some operation that can prove 
 
 This calculation is based on the digital signature algorithm, which in the case of Bitcoin is the Elliptic Curve Digital Signature Algorithm (ECDSA). And the secret in our case is the variable $$e$$, which satisfies the equation $$eG = P$$, where $$e$$ is the private key, $$P$$ is the public key, and $$G$$ is the generator point for the finite cyclic group.
 
-The target number we propose to hit is the $$x$$-coordinate of a point on the elliptic curve that is generated through multiplying a random 256-bit number that we denote with the variable $$k$$ and the generator point $$G$$. The point is represented by the variable $$R$$, so $$kG = R$$, and the coordinate of interest is represented by the lower-case $$r$$.
+The target number we propose to hit is the $$x$$-coordinate of a point on the elliptic curve that is generated through multiplying a random 256-bit number that we denote with the variable $$k$$ and the generator point $$G$$. The point is represented by the variable $$R$$, so $$kG = R$$, and the coordinate of interest, $$x$$, is represented by the lower-case $$r$$.
 
 Now, we claim that solving the following equivalent to the discrete log problem: $$uG + vP = kG$$ where $$k$$ was chosen randomly, $$u, v \ne 0$$ are scalar multiples that can be chosen by the signer, and $$G$$ and $$P$$ are publicly available. This is due to the fact that $$uG + vP = kG$$ implies $$vP = (k-u)G$$ and we can further reduce this equation by dividing by  $$v$$: $$P = ((k - u)/v)G$$
 
