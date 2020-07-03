@@ -45,7 +45,7 @@ So to provide a correct $$u$$ and $$v$$, you either have to break the discrete l
 
 Now we have to incorporate the contract that gets fulfilled as a result of calculating the target into the calculation itself. This is called the signature hash, which is a deterministic function that takes arbitrary data of any size and transforms it into data of fixed size. The hash acts as a fingerprint of the message being signed, which contains the target $$r$$, which anyone verifying the message knows.
 
-We can denote the signature hash with the variable $$z$$, and is incorporated into our $$uG + vP$$ calculation like so$$u = z/s$$, where $$s$$ is determined by an equation we will cover in just a bit. We also posit that $$v = r/s$$. And since $$r$$ is used in the calculation of $$v$%, we now have our target and signature hash mixed into our calculation.
+We can denote the signature hash with the variable $$z$$, and is incorporated into our $$uG + vP$$ calculation like so $$u = z/s$$, where $$s$$ is determined by an equation we will cover in just a bit. We also posit that $$v = r/s$$. And since $$r$$ is used in the calculation of $$v$%, we now have our target and signature hash mixed into our calculation.
 
 This is the basis of the signature algorithm and the two numbers in a signature are $$r$$ and $$s$$.
 
