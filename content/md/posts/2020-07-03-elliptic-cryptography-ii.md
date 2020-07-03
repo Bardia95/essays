@@ -39,7 +39,7 @@ The target number we propose to hit is the $$x$$-coordinate of a point on the el
 
 Now, we claim that solving the following equivalent to the discrete log problem: $$uG + vP = kG$$ where $$k$$ was chosen randomly, $$u, v \ne 0$$ are scalar multiples that can be chosen by the signer, and $$G$$ and $$P$$ are publicly available. This is due to the fact that $$uG + vP = kG$$ implies $$vP = (k-u)G$$ and we can further reduce this equation by dividing by  $$v$$: $$P = ((k - u)/v)G$$
 
-And if we know $$e$$, we have: $$eG = ((k-u)/v)G$$ or $$e = (k-u)/v$$ which means that any $$(u, v)$$ that satisfies the preceding equation will work. But if we don't know $$e$$ we have to adjust $$(u, v)$$ until we satisfy $$e = (k-u)/v$$, but solving this means we have solved $$P = eG$$ without knowing $$e$%, which implies we would be breaking the discrete logarithm problem.
+And if we know $$e$$, we have: $$eG = ((k-u)/v)G$$ or $$e = (k-u)/v$$ which means that any $$(u, v)$$ that satisfies the preceding equation will work. But if we don't know $$e$$ we have to adjust $$(u, v)$$ until we satisfy $$e = (k-u)/v$$, but solving this means we have solved $$P = eG$$ without knowing $$e$$, which implies we would be breaking the discrete logarithm problem.
 
 So to provide a correct $$u$$ and $$v$$, you either have to break the discrete logarithm problem or know the secret $$e$$, and since we can assume the discrete logarithm problem is unbreakable with current techniques, it is safe to assume that whoever came up with $$u$$ and $$v$$ must also know $$e$$.
 
