@@ -4,7 +4,7 @@
  :toc true
  :author "Bardia Pourvakil"}
 
-Welcome to the second part of our Clojure-based exploration of [Programming Bitcoin](https://www.oreilly.com/library/view/programming-bitcoin/9781492031482/)  by Jimmy Song. In the first part, we tackled finite fields, which, when combined with this essay's topic, elliptic curves, produce elliptic curve cryptography—the basis of Bitcoin's signing and verification algorithms. The essential math we will learn in this section may seem difficult at first but it is very similar to what we learned before.
+Welcome to the second part of our Clojure-based exploration of [Programming Bitcoin](https://www.oreilly.com/library/view/programming-bitcoin/9781492031482/)  by Jimmy Song. In the [first article](https://btcclj.com/posts-output/2020-04-21-finite-fields/), we tackled finite fields, which, when combined with this essay's topic, elliptic curves, produce elliptic curve cryptography—the basis of Bitcoin's signing and verification algorithms. The essential math we will learn in this section may seem difficult at first but it is very similar to what we learned before.
 
 ## Definition
 

@@ -5,7 +5,7 @@
  :author "Bardia Pourvakil"}
 
 
-This is the second part of our primer on elliptic curve cryptography in Clojure, where we dive into the basics of public key cryptography, the advantages of using elliptic curves for these operations, and how we can sign and verify signatures in the Bitcoin protocol. Let's get started!
+This is the second part of our primer on elliptic curve cryptography in Clojure (here's [part one](https://btcclj.com/posts-output/2020-06-18-elliptic-curve-cryptography-i/)), where we dive into the basics of public key cryptography, the advantages of using elliptic curves for these operations, and how we can sign and verify signatures in the Bitcoin protocol.Let's get started!
 
 ## Public Key Cryptography
 
